@@ -1,0 +1,28 @@
+{
+  "name": "dynamodb-hfc-kvs",
+  "description": "This module provides KeyValueStore implementation for hfc backed by DynamoDB",
+  "version": "1.0.0",
+  "keywords": [
+    "dynamodb",
+    "hfc",
+    "blockchain",
+    "hyperledger",
+    "fabric"
+  ],
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nakao4532/dynamodb-hfc-kvs.git"
+  },
+  "author": {
+    "name": "Nakao Kazuyoshi",
+    "email": "nakao_kazuyoshi@cyberagent.co.jp",
+    "url": "https://github.com/nakao4532"
+  },
+  "dependencies": {
+    "amazon-dax-client": "^1.2.2",
+    "aws-sdk": "^2.530.0",
+    "fabric-client": "^1.2.2"
+  }
+}
