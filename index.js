@@ -9,6 +9,7 @@ class DynamoDBKeyValueStore extends api.KeyValueStore {
     }
     super();
     this.tablename = options.tablename;
+    this.keyname = typeof options.keyname === 'string' ? options.keyname : 'name'; 
 
     if (options.daxEndpoint) {
       const dax = new AmazonDaxClient({endpoints: [options.daxEndpoint]});
@@ -29,11 +30,12 @@ class DynamoDBKeyValueStore extends api.KeyValueStore {
 
   getValue(name) {
     const tablename = this.tablename;
+    const keyname = this.keyname;
     const documentClient = this.documentClient;
     const params = {
       TableName: tablename,
       Key: {
-          name,
+          [keyname]: name,
       }
     }
     return new Promise((resolve, reject) => {
@@ -55,8 +57,8 @@ class DynamoDBKeyValueStore extends api.KeyValueStore {
     const params = {
       TableName: tablename,
       Item: {
-          name,
-          value,
+        [keyname]: name,
+        value,
       },
     }
     return new Promise((resolve, reject) => {
