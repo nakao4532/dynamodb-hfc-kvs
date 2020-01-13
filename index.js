@@ -53,6 +53,7 @@ class DynamoDBKeyValueStore extends api.KeyValueStore {
 
   setValue(name, value) {
     const tablename = this.tablename;
+    const keyname = this.keyname;
     const documentClient = this.documentClient;
     const params = {
       TableName: tablename,
